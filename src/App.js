@@ -37,7 +37,7 @@ function App() {
       case "%":
         setScreen((screen / 100).toString());
         break;
-      case "":
+      case "backspace":
         screen.length === 1 
           ? setScreen("0") 
           : setScreen(screen.substring(0, screen.length - 1));
@@ -50,6 +50,16 @@ function App() {
       case "=":
         setTotal(handleCalc(screen, operation, total));
         setScreen(handleCalc(screen, operation, total));
+        break;
+      case "+":
+        setOperation("add");
+        if (!total) setTotal(screen);
+        setScreen("0");
+        break;
+      case "-":
+        setOperation("sub");
+        if (!total) setTotal(screen);
+        setScreen("0");
         break;
 			default:
 				screen === "0" && screen.length < 10
@@ -69,7 +79,7 @@ function App() {
 						  <Button name="number" onClick={handleInput} value={"AC"} />
 						  <Button name="number" onClick={handleInput} value={"+/-"} />
 						  <Button name="number" onClick={handleInput} value={"%"} />
-              <Button name="operation delete"onClick={handleInput} value={""} />
+              <Button name="operation delete"onClick={handleInput} value={"backspace"} />
 					  </div>
 					  <div id="buttons" className="button-row">
 						  <Button name="number" onClick={handleInput} value={7} />

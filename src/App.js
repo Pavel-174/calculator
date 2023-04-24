@@ -61,6 +61,11 @@ function App() {
         if (!total) setTotal(screen);
         setScreen("0");
         break;
+      case "×":
+        setOperation("mult");
+        if (!total) setTotal(screen);
+        setScreen("0");
+        break;
 			default:
 				screen === "0" && screen.length < 10
 					? setScreen(e.target.value)
@@ -73,7 +78,7 @@ function App() {
 				<main>
           <div className="calculator">
 					  <div className="screen-container">
-						  <h1 className="screen">{screen}</h1>
+						  <span className="screen">{screen}</span>
 					  </div>
 					  <div id="buttons" className="button-row">
 						  <Button name="number" onClick={handleInput} value={"AC"} />

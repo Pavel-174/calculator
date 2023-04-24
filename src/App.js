@@ -24,6 +24,10 @@ function App() {
 
   const handleInput = (e) => {
 		switch (e.target.value) {
+      case "AC":
+	      setScreen("0");
+	      setTotal();
+	      break;
 			default:
 				screen === "0" && screen.length < 10
 					? setScreen(e.target.value)

@@ -4,6 +4,24 @@ import "./App.css";
 import Button from "./components/Button";
 
 function App() {
+  const [total, setTotal] = React.useState();
+	const [screen, setScreen] = React.useState("0");
+	const [operation, setOperation] = React.useState("");
+
+	const handleCalc = (input, operation, total) => {
+		switch (operation) {
+			case "add":
+				return (+input + +total).toString();
+			case "sub":
+				return (total - input).toString();
+			case "mult":
+				return (total * input).toString();
+			case "div":
+				return (total / input).toString();
+			default:
+		}
+	};
+
 	return (
 		<>
 			<body>

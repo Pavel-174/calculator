@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/heading-has-content */
 import React from "react";
 import "./App.css";
 import Button from "./components/Button";
@@ -39,7 +38,9 @@ function App() {
         setScreen((screen / 100).toString());
         break;
       case "":
-        setScreen(screen.substring(0, screen.length - 1));
+        screen.length === 1 
+          ? setScreen("0") 
+          : setScreen(screen.substring(0, screen.length - 1));
         break;
 			default:
 				screen === "0" && screen.length < 10
@@ -49,7 +50,6 @@ function App() {
 	};
 
 	return (
-		<>
 			<body>
 				<main>
           <div className="calculator">
@@ -78,7 +78,7 @@ function App() {
 						  <Button name="number" onClick={handleInput} value={1} />
 						  <Button name="number" onClick={handleInput} value={2} />
 						  <Button name="number" onClick={handleInput} value={3} />
-              <Button name={"operation"} onClick={handleInput} value={"−"} />
+              <Button name={"operation"} onClick={handleInput} value={"-"} />
   					</div>
 	  				<div id="buttons" className="button-row">
 		  				<Button name="number" onClick={handleInput} value={"0"} />
@@ -89,7 +89,6 @@ function App() {
           </div>
 				</main>
 			</body>
-		</>
 	);
 }
 

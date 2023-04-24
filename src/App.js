@@ -22,43 +22,52 @@ function App() {
 		}
 	};
 
+  const handleInput = (e) => {
+		switch (e.target.value) {
+			default:
+				screen === "0" && screen.length < 10
+					? setScreen(e.target.value)
+					: setScreen(screen + e.target.value);
+		}
+	};
+
 	return (
 		<>
 			<body>
 				<main>
           <div className="calculator">
 					  <div className="screen-container">
-						  <h1 className="screen">000</h1>
+						  <h1 className="screen">{screen}</h1>
 					  </div>
 					  <div id="buttons" className="button-row">
-						  <Button name="number" value={"AC"} />
-						  <Button name="number" value={"+/-"} />
-						  <Button name="number" value={"%"} />
-              <Button name="operation delete" value={""} />
+						  <Button name="number" onClick={handleInput} value={"AC"} />
+						  <Button name="number" onClick={handleInput} value={"+/-"} />
+						  <Button name="number" onClick={handleInput} value={"%"} />
+              <Button name="operation delete"onClick={handleInput} value={""} />
 					  </div>
 					  <div id="buttons" className="button-row">
-						  <Button name="number" value={7} />
-						  <Button name="number" value={8} />
-						  <Button name="number" value={9} />
-              <Button name="operation" value={"÷"} />						
+						  <Button name="number" onClick={handleInput} value={7} />
+						  <Button name="number" onClick={handleInput} value={8} />
+						  <Button name="number" onClick={handleInput} value={9} />
+              <Button name="operation" onClick={handleInput} value={"÷"} />						
 					  </div>
 					  <div id="buttons" className="button-row">
-						  <Button name="number" value={4} />
-						  <Button name="number" value={5} />
-						  <Button name="number" value={6} />
-              <Button name="operation" value={"×"} />						
+						  <Button name="number" onClick={handleInput} value={4} />
+						  <Button name="number" onClick={handleInput} value={5} />
+						  <Button name="number" onClick={handleInput} value={6} />
+              <Button name="operation" onClick={handleInput} value={"×"} />						
 					  </div>
 					  <div id="buttons" className="button-row">
-						  <Button name="number" value={1} />
-						  <Button name="number" value={2} />
-						  <Button name="number" value={3} />
-              <Button name={"operation"} value={"−"} />
+						  <Button name="number" onClick={handleInput} value={1} />
+						  <Button name="number" onClick={handleInput} value={2} />
+						  <Button name="number" onClick={handleInput} value={3} />
+              <Button name={"operation"} onClick={handleInput} value={"−"} />
   					</div>
 	  				<div id="buttons" className="button-row">
-		  				<Button name="number" value={"0"} />
-			  			<Button name="number" value={"."} />
-				  		<Button name="number" value={"="} />
-              <Button name="operation" value={"+"} />
+		  				<Button name="number" onClick={handleInput} value={"0"} />
+			  			<Button name="number" onClick={handleInput} value={"."} />
+				  		<Button name="number" onClick={handleInput} value={"="} />
+              <Button name="operation" onClick={handleInput} value={"+"} />
 					  </div>
           </div>
 				</main>

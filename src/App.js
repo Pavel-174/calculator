@@ -66,6 +66,11 @@ function App() {
         if (!total) setTotal(screen);
         setScreen("0");
         break;
+      case ".":
+        if (!screen.includes(".")) {
+          setScreen(screen + ".");
+        }
+        break;
 			default:
 				screen === "0" && screen.length < 10
 					? setScreen(e.target.value)

@@ -42,6 +42,15 @@ function App() {
           ? setScreen("0") 
           : setScreen(screen.substring(0, screen.length - 1));
         break;
+      case "÷":
+        setOperation("div");
+        if (!total) setTotal(screen);
+        setScreen("0");
+        break;
+      case "=":
+        setTotal(handleCalc(screen, operation, total));
+        setScreen(handleCalc(screen, operation, total));
+        break;
 			default:
 				screen === "0" && screen.length < 10
 					? setScreen(e.target.value)
@@ -81,8 +90,8 @@ function App() {
               <Button name={"operation"} onClick={handleInput} value={"-"} />
   					</div>
 	  				<div id="buttons" className="button-row">
+              <Button name="number" onClick={handleInput} value={"."} />
 		  				<Button name="number" onClick={handleInput} value={"0"} />
-			  			<Button name="number" onClick={handleInput} value={"."} />
 				  		<Button name="number" onClick={handleInput} value={"="} />
               <Button name="operation" onClick={handleInput} value={"+"} />
 					  </div>

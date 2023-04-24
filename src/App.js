@@ -28,6 +28,13 @@ function App() {
 	      setScreen("0");
 	      setTotal();
 	      break;
+      case "+/-":
+        screen.charAt(0) !== "-"
+          ? screen !== "0"
+            ? setScreen("-" + screen)
+            : setScreen(screen)
+          : setScreen(screen.substring(1, screen.length));
+          break;
 			default:
 				screen === "0" && screen.length < 10
 					? setScreen(e.target.value)

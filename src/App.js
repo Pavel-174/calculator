@@ -10,13 +10,13 @@ function App() {
 				<main>
           <div className="calculator">
 					  <div className="screen-container">
-						  <h1 className="screen"></h1>
+						  <h1 className="screen">000</h1>
 					  </div>
 					  <div id="buttons" className="button-row">
 						  <Button name="number" value={"AC"} />
 						  <Button name="number" value={"+/-"} />
 						  <Button name="number" value={"%"} />
-              <Button name="delete" value={""} />
+              <Button name="operation delete" value={""} />
 					  </div>
 					  <div id="buttons" className="button-row">
 						  <Button name="number" value={7} />

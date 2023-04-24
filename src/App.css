@@ -9,6 +9,8 @@ body {
     width: fit-content;
     height: fit-content;
     margin: 40px auto;
+    padding: 20px 30px 60px 30px;
+    box-shadow: 0px 0px 16px -3px rgba(34, 60, 80, 0.58) inset;
 }
 
 .screen {
@@ -17,14 +19,16 @@ body {
 	justify-content: flex-end;
 	width: 400px;
 	padding-bottom: 0px;
-	font-size: 60px;
-	color: white;
+	font-size: 110px;
+	color: orange;
+    margin: 0px;
 }
 
 .screen-container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+    margin-top: 120px;
 }
 
 .button-row {

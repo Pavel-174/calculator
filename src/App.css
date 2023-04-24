@@ -1,0 +1,36 @@
+body {
+	background-color: white;
+}
+
+.calculator {
+    background-color: lightgrey;
+    margin: o auto;
+    border-radius: 10%;
+    width: fit-content;
+    height: fit-content;
+    margin: 40px auto;
+}
+
+.screen {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 400px;
+	padding-bottom: 0px;
+	font-size: 60px;
+	color: white;
+}
+
+.screen-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button-row {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	padding-top: 10px;
+}
+

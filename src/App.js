@@ -34,7 +34,10 @@ function App() {
             ? setScreen("-" + screen)
             : setScreen(screen)
           : setScreen(screen.substring(1, screen.length));
-          break;
+        break;
+      case "%":
+        setScreen((screen / 100).toString());
+        break;
 			default:
 				screen === "0" && screen.length < 10
 					? setScreen(e.target.value)

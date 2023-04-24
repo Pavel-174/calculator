@@ -38,6 +38,9 @@ function App() {
       case "%":
         setScreen((screen / 100).toString());
         break;
+      case "":
+        setScreen(screen.substring(0, screen.length - 1));
+        break;
 			default:
 				screen === "0" && screen.length < 10
 					? setScreen(e.target.value)

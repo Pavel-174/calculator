@@ -32,7 +32,7 @@ button:active {
 }
 
 .delete {
-    background-image: url(../../src/images/download.svg);
+    background-image: url(../../../src/images/download.svg);
     background-size: 2rem;
     background-repeat: no-repeat;
     background-position: center;

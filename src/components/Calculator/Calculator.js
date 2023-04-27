@@ -71,8 +71,8 @@ export default function Calculator() {
   	const handleInput = (e) => {
 		switch (e.target.value) {
 
-    	  	case "AC":
-		ac();
+    	case "AC":
+		  	ac();
 	    break;
 
       		case "+/-":
@@ -115,7 +115,7 @@ export default function Calculator() {
           		point();
         	}
         break;
-		
+
 			default:
 				screen === "0" && screen.length < 10
 					? setScreen(e.target.value)

@@ -21,56 +21,101 @@ export default function Calculator() {
 		}
 	};
 
-  const handleInput = (e) => {
+    const add = () => {
+		setOperation("add");
+		if (!total) setTotal(screen);
+		setScreen("0");
+  	}
+    const ac = () => {
+		setScreen("0");
+		setTotal();	
+  	}
+
+  	const percent = () => {
+		setScreen((screen / 100).toString());
+  	}
+
+  	const backspace = () => {
+		screen.length === 1 
+		? setScreen("0") 
+		: setScreen(screen.substring(0, screen.length - 1));
+  	}
+
+  	const div = () => {
+		setOperation("div");
+		if (!total) setTotal(screen);
+		setScreen("0");
+  	}
+
+  	const equally = () => {
+		setTotal(handleCalc(screen, operation, total));
+		setScreen(handleCalc(screen, operation, total));
+  	}
+
+  	const sub = () => {
+		setOperation("sub");
+		if (!total) setTotal(screen);
+		setScreen("0");
+  	}
+
+  	const mult = () => {
+		setOperation("mult");
+		if (!total) setTotal(screen);
+		setScreen("0");
+  	}
+
+  	const point = () => {
+		setScreen(screen + ".");
+  	}
+
+  	const handleInput = (e) => {
 		switch (e.target.value) {
-      case "AC":
-	      setScreen("0");
-	      setTotal();
-	      break;
-      case "+/-":
+
+    	  	case "AC":
+		ac();
+	    break;
+
+      		case "+/-":
         screen.charAt(0) !== "-"
-          ? screen !== "0"
-            ? setScreen("-" + screen)
-            : setScreen(screen)
-          : setScreen(screen.substring(1, screen.length));
+          	? screen !== "0"
+        	    ? setScreen("-" + screen)
+        	    : setScreen(screen)
+        	    : setScreen(screen.substring(1, screen.length));
         break;
-      case "%":
-        setScreen((screen / 100).toString());
+
+      	case "%":
+        	percent();
         break;
-      case "backspace":
-        screen.length === 1 
-          ? setScreen("0") 
-          : setScreen(screen.substring(0, screen.length - 1));
+
+      	case "backspace":
+			backspace();
         break;
-      case "÷":
-        setOperation("div");
-        if (!total) setTotal(screen);
-        setScreen("0");
+      	case "÷":
+			div();
         break;
-      case "=":
-        setTotal(handleCalc(screen, operation, total));
-        setScreen(handleCalc(screen, operation, total));
+
+      	case "=":
+			equally();
         break;
-      case "+":
-        setOperation("add");
-        if (!total) setTotal(screen);
-        setScreen("0");
+
+      	case "+":
+			add();
         break;
-      case "-":
-        setOperation("sub");
-        if (!total) setTotal(screen);
-        setScreen("0");
+
+      	case "-":
+			sub();
         break;
-      case "×":
-        setOperation("mult");
-        if (!total) setTotal(screen);
-        setScreen("0");
+
+      	case "×":
+			mult();
         break;
-      case ".":
-        if (!screen.includes(".")) {
-          setScreen(screen + ".");
-        }
+
+      	case ".":
+        	if (!screen.includes(".")) {
+          		point();
+        	}
         break;
+		
 			default:
 				screen === "0" && screen.length < 10
 					? setScreen(e.target.value)
@@ -78,65 +123,52 @@ export default function Calculator() {
 		}
 	};
 
-	window.addEventListener('keyup', function(event) {
-		if (event.key === "Backspace" ) {
-			screen.length === 1 
-			? setScreen("0") 
-			: setScreen(screen.substring(0, screen.length - 1));
+	window.addEventListener('keyup', function(e) {
+		if (e.key === "Backspace" ) {
+			backspace();
 		}
-		else if (event.key === "+" ) {
-			setOperation("add");
-			if (!total) setTotal(screen);
-			setScreen("0");
+		else if (e.key === "+" ) {
+			add();
 		}
-		else if (event.key === "-" ) {
-			setOperation("sub");
-			if (!total) setTotal(screen);
-			setScreen("0");
+		else if (e.key === "-" ) {
+			sub();
 		}
-		else if (event.key === "*" ) {
-			setOperation("mult");
-			if (!total) setTotal(screen);
-			setScreen("0");
+		else if (e.key === "*" ) {
+			mult();
 		}
-		else if (event.key === "/") {
-			setOperation("div");
-			if (!total) setTotal(screen);
-			setScreen("0");
+		else if (e.key === "/") {
+			div();
 		}
-		else if (event.key === '=' || event.key === 'Enter') {
-			setTotal(handleCalc(screen, operation, total));
-			setScreen(handleCalc(screen, operation, total));
-			setTotal(screen);
+		else if (e.key === '=' || e.key === 'Enter') {
+			equally();
 		}
-		else if (event.key === "Delete") {
-			setScreen("0");
-			setTotal();
+		else if (e.key === "Delete") {
+			ac();
 		}
-		else if (event.keyCode === 16) {
+		else if (e.keyCode === 16) {
 			setScreen(screen);
 		}
 		else if (
-			      event.key === "0" || 
-		          event.key === "1" || 
-				  event.key === "2" || 
-				  event.key === "3" || 
-				  event.key === "4" || 
-				  event.key === "5" || 
-				  event.key === "6" || 
-				  event.key === "7" || 
-				  event.key === "8" || 
-				  event.key === "9" 
+			      e.key === "0" || 
+		          e.key === "1" || 
+				  e.key === "2" || 
+				  e.key === "3" || 
+				  e.key === "4" || 
+				  e.key === "5" || 
+				  e.key === "6" || 
+				  e.key === "7" || 
+				  e.key === "8" || 
+				  e.key === "9" 
 				) {
 			screen === "0" && screen.length < 10
-			? setScreen(event.key)
-			: setScreen(screen + event.key);
+			? setScreen(e.key)
+			: setScreen(screen + e.key);
 		}
-		else if (event.key === "." ||  event.key === ",") {
-			setScreen(screen + ".");
+		else if (!screen.includes(".") && (e.key === "." ||  e.key === ",")) {
+			point();
 	    }
-		else if (event.key === "%") {
-			setScreen((screen / 100).toString());
+		else if (e.key === "%") {
+			percent();
 	    }
 	}); 
 

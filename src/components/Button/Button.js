@@ -1,10 +1,10 @@
 import React from "react";
-import "./Button.css";
+import "./Button.scss";
 
-export default function Button(props) {
+export default function Button( {value, onClick, name} ) {
 	return (
-		<button value={props.value} onClick={props.onClick} className={props.name}>
-			{props.value} 
+		<button value={value} onClick={onClick} className={name}>
+			{value} 
 		</button>
 	);
 }

@@ -1,6 +1,6 @@
 /* eslint-disable default-case */
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import Calculator from "./components/Calculator/Calculator";
 
 function App() {
